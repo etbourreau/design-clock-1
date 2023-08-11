@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Design Clock 1</title>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+        <script src="design.js"></script>
+
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100dvh;
+                overflow: hidden;
+
+                background-color: #333;
+                color: #fff;
+
+                display: flex;
+                align-items: center;
+            }
+            .main {
+                position: relative;
+            }
+            .settings {
+                position: absolute;
+                bottom: 0%;
+            }
+            .settings label:not(:last-child) {
+                margin-right: .5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div class="settings">
+                <input type="checkbox" id="showText" />
+                <label for="showText">Show Text</label>
+            </div>
+        </main>
+        <script>
+            window.config = {
+                showText: false,
+            };
+            document
+                .querySelector("#showText")
+                .addEventListener("change", (e) => {
+                    window.config.showText = e.target.checked;
+                });
+        </script>
+    </body>
+</html>
